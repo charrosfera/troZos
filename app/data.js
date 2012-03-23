@@ -20,6 +20,14 @@ App.Data = (function(lng, app, undefined) {
       
     }
     
+    var flagRefresh = function( flag ){
+      if (flag){
+        lng.Data.Storage.persistent('jt.flag-refresh', flag);
+      }else{
+        return lng.Data.Storage.persistent('jt.flag-refresh');  
+      }
+    }
+    
     /* Mapa */
    
     
@@ -27,10 +35,11 @@ App.Data = (function(lng, app, undefined) {
 
     return {
       app:{
-        ultimaActualizacion: ultimaActualizacion,        
+        ultimaActualizacion: ultimaActualizacion, 
+        flagRefresh: flagRefresh       
       },
-      usuario:{       
-        perfil: datosUsuario
+      user:{       
+        profile: datosUsuario
       }
     }
 

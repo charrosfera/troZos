@@ -26,32 +26,9 @@
 </head>
 
 <body class="app">
-    <!--
-        First, you have to do is create a LungoJS Application instance in the file app.js.
-        ...and use a Webkit browser as Chrome or Safari.
-    -->
-    <section id="login">
-        <header data-title="Juego de TroZos">
+    
 
-            <!--<a href="#aside-example" data-target="aside" data-icon="files" class="button onleft">Aside</a> -->
-            <!--<a href="#copyright" data-target="section" data-icon="files" class="button onright">Copyright</a>-->
-        </header>
-        <article>
-          <div class="logo">
-            <img src="assets/images/logo.png" alt="Juego de Trozos"/>  
-          </div>
-          <p class="login-form">
-            <input type="text" placeholder="Input text" class="login-input"/>
-            
-            <a href="#mainapp" class="blue login-button" data-target="section">Connectar con Twitter</a>  
-          </form>
-          
-          
-        </article>
-
-    </section>
-
-    <section id="mainapp">
+    <section id="main">
         <header data-title="Juego de trozos"></header>
         <article id="perfil">
           Datos del usuario
@@ -62,47 +39,63 @@
         
         <footer class="toolbar with-labels">
             <nav>
-                <a href="#perfil" class="current" data-target="article" data-icon="user" data-label="Perfil"></a>
-                <a href="#mapa" data-target="section" data-icon="chart" data-label="Mapa"></a>
+                <a href="#perfil" id="btn-verperfil" class="current" data-target="article" data-icon="user" data-label="Perfil"></a>
+                <a href="#mapsection" data-target="section" data-icon="chart" data-label="Mapa"></a>
                 <a href="#notificaciones" data-target="article" data-icon="items" data-label="Notificaciones"></a>
             </nav>
         </footer>
         
     </section>
     
-    <section id="mapa">
-      <header data-title="Tus Trozos">
-        <nav>
-          <a href="#mainapp" class="button onleft" data-target="section" data-icon="left" >Volver</a>
-        </nav>
-      </header>
-      <article>El mapa del usuario</article>
+    <section id="mapsection">
+        <header data-title="Juego de trozos">
+          <nav>
+            <a href="#main" data-target="section" data-icon="left" class="button left"></a>
+          </nav>
+        </header>
+        <article id="map">
+          
+        </article>
     </section>
     
-
-
     <!-- LungoJS (Production mode) -->
     <script src="lungo.js/lungo-1.2.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <!-- LungoJS - Sandbox App -->
     <script src="app/app.js"></script>
     <script src="app/data.js"></script>
     <script src="app/events.js"></script>
     <script src="app/services.js"></script>
     <script src="app/view.js"></script>
-    <script>
-      LUNGO.dom(document).ready(function() {
-        
-          
-        
-        //DATOS DE PALO
-        LUNGO.Data.usuario.perfil({
-          nombre:'jm_merino',
-          ataque:'90',
-          defensa:'20',
-          fuerza
-        })           
-        
+    <script src="assets/javascripts/lungo.sugar.gmap.js"></script>
+    <script src="assets/javascripts/lungo.sugar.gmap.interface.js"></script>
+    <script src="assets/javascripts/lungo.sugar.geolocation.js"></script>
+    <script type="text/javascript">
+    
+      LUNGO.Sugar.GMap.init({
+          el: '#map',
+          zoom: 14,
+          center: { latitude: 59.32522, longitude: 18.07002 }
       });
+      
+      LUNGO.Sugar.Geolocation
+   
+   
+      if (!App.Data.user.profile()){
+        //window.location.href = "login.html";
+      }else{
+        App.Services.user.getProfile(function(){
+          
+          App.Data.user.profile({
+            name: 'jesus',
+            attack: 90,
+            defense: 10            
+          })
+          
+          LUNGO.View.Template.render('#perfil', 'userprofile', App.Data.user.profile());
+        });
+      }
     </script>
+    
 </body>
 </html>
