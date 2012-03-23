@@ -4,16 +4,33 @@ App.Services = (function(lng, app, undefined) {
     var getUserProfile = function(callback) {
         var url = urlRoot + '/user';
 
-        lng.Service.get(url, null function(userProfile) {
+        lng.Service.json(url, null function(userProfile) {
             lng.Data.user.profile(userProfile);
             callback.call(userProfile);
         });
     }
 
-    var getUserNotifications = function(callback) {
+    var spyTile = function(position, callback) {
+
+    }
+
+    var attackTile = function(tile, callback) {
+        
+    }
+
+    var getAllNotifications = function(callback) {
         var url = urlRoot + '/notifications';
 
-        lng.Service.get(url, null function(userNotifications) {
+        lng.Service.json(url, null function(userNotifications) {
+            //lng.Data.user.notifications(userNotifications);
+            callback.call(userNotifications);
+        });
+    };
+    
+    var destroyAllNotifications = function(callback) {
+        var url = urlRoot + '/notifications';
+
+        lng.Service.json(url, null function(userNotifications) {
             //lng.Data.user.notifications(userNotifications);
             callback.call(userNotifications);
         });
@@ -21,9 +38,17 @@ App.Services = (function(lng, app, undefined) {
 
     return {
         user: {
-            getProfile: getUserProfile,
-            getNotifications: getUserNotifications
+            getProfile: getUserProfile
+        },
+        tile: {
+            spy: spyTile,
+            attack: attackTile
         }
+        notification: {
+            getAll: getAllNotifications,
+            destroyAll: destroyAllNotifications
+        }
+
     }
 
 })(LUNGO, App);
