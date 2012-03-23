@@ -92,15 +92,24 @@
     <script>
       LUNGO.dom(document).ready(function() {
         
-          
+        LUNGO.View.Template.create(
+          'usuario-perfil', 
+          '<div class="usuario-cabecera">\
+            <img src="{{img}}" />\
+            <p class="user-info usuario-nombre">{{name}}</p>\
+            <p class="user-info usuario-nivel">{{level}}</p>\
+          </div>\
+          <div class="usuario-fuerzadia"></div>\
+          <div class="usuario-bloque">{{ataque}}</div>\
+          <div class="usuario-bloque">{{defensa}}</div>
+          <a href="#" id="btn-atacar" class="button" >Atacar</a>\
+          <a href="#" id="btn-cancelar-ataque" class="button" >No atacar (cobarde!)</a>'
+        );
         
-        //DATOS DE PALO
-        LUNGO.Data.usuario.perfil({
-          nombre:'jm_merino',
-          ataque:'90',
-          defensa:'20',
-          fuerza
-        })           
+        LUNGO.View.Template.create(
+          'usuario-notificaciones', 
+          '<li><div class="onright bubble pink">{{tipo}}</div>{{texto}}</li>'
+        );               
         
       });
     </script>

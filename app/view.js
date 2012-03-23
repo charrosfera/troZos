@@ -1,7 +1,7 @@
 App.View = (function(lng, app, undefined) {
 
-    return{
 
+    return { 
     }
 
 })(LUNGO, App);
