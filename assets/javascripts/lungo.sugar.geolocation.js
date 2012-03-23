@@ -53,6 +53,8 @@ LUNGO.Sugar.Geolocation = (function(lng, undefined) {
 	  navigator.geolocation.getCurrentPosition(callback, _onError);
 	}
 	
+	
+	
 	return {
 		setMap: setMap,
 		getLatLng: getLatLng

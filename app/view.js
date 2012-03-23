@@ -20,7 +20,14 @@ App.View = (function(lng, app, undefined) {
       <span class="notification-title">{{name}}</span><span class="notification-title">{{title}}</span>\
     </li>';
   
-   lng.View.Template.create('notificationslist', notifications_html);   
+   lng.View.Template.create('notificationslist', notifications_html);
+   
+   
+    var userslist_html = '<li>\
+      {{name}}\
+    </li>';  
+   lng.View.Template.create('userslist', userslist_html);   
+   
 
     return { 
     }
