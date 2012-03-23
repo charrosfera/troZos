@@ -1,11 +1,9 @@
 App.Services = (function(lng, app, undefined) {
-    var urlRoot = 'http://138.4.61.93:8888/api';
-
     var getUserProfile = function(callback) {
         var url = urlRoot + '/user';
 
         lng.Service.json(url, null, function(userProfile) {
-            lng.Data.user.profile(userProfile);
+            App.Data.user.profile(userProfile);
             callback.call(userProfile);
         });
     }
