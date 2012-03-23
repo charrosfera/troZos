@@ -1,4 +1,6 @@
 App.Services = (function(lng, app, undefined) {
+    var urlRoot = "http://localhost:8888/api";
+    
     var getUserProfile = function(callback) {
         var url = urlRoot + '/user';
 
