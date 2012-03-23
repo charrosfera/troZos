@@ -1,19 +1,40 @@
 App.Services = (function(lng, app, undefined) {
-    var urlRoot = 'http://138.4.61.93/api';
-
+    var urlRoot = "http://localhost:8888/api";
+    
     var getUserProfile = function(callback) {
         var url = urlRoot + '/user';
 
-        lng.Service.get(url, {}, function(userProfile) {
+        lng.Service.json(url, null, function(userProfile) {
             App.Data.user.profile(userProfile);
             callback.call(userProfile);
         });
     }
 
-    var getUserNotifications = function(callback) {
+    var spyPlace = function(id, callback) {
+        var url = urlRoot + '/spy/' + id;
+
+        lng.Service.json(url, null, function(place) {
+            callback.call(place);
+        });
+    }
+
+    var attackPlace = function(id, callback) {
+        
+    }
+
+    var getAllNotifications = function(callback) {
         var url = urlRoot + '/notifications';
 
-        lng.Service.get(url, {}, function(userNotifications) {
+        lng.Service.json(url, null, function(userNotifications) {
+            //lng.Data.user.notifications(userNotifications);
+            callback.call(userNotifications);
+        });
+    };
+    
+    var destroyAllNotifications = function(callback) {
+        var url = urlRoot + '/notifications';
+
+        lng.Service.json(url, null, function(userNotifications) {
             //lng.Data.user.notifications(userNotifications);
             callback.call(userNotifications);
         });
@@ -21,9 +42,17 @@ App.Services = (function(lng, app, undefined) {
 
     return {
         user: {
-            getProfile: getUserProfile,
-            getNotifications: getUserNotifications
+            getProfile: getUserProfile
+        },
+        place: {
+            spy: spyPlace,
+            attack: attackPlace
+        },
+        notification: {
+            getAll: getAllNotifications,
+            destroyAll: destroyAllNotifications
         }
+
     }
 
 })(LUNGO, App);
