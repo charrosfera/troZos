@@ -43,43 +43,10 @@
           <p class="login-form">
             <input type="text" placeholder="Input text" class="login-input"/>
             
-            <a href="#mainapp" class="blue login-button" data-target="section">Connectar con Twitter</a>  
-          </form>
-          
-          
+            <a href="#mainapp" id="btn-login" class="blue login-button" data-target="section">Connectar con Twitter</a>  
+          </p>
         </article>
-
     </section>
-
-    <section id="mainapp">
-        <header data-title="Juego de trozos"></header>
-        <article id="perfil">
-          Datos del usuario
-        </article>
-        <article id="notificaciones">
-          Notificaciones
-        </article>
-        
-        <footer class="toolbar with-labels">
-            <nav>
-                <a href="#perfil" class="current" data-target="article" data-icon="user" data-label="Perfil"></a>
-                <a href="#mapa" data-target="section" data-icon="chart" data-label="Mapa"></a>
-                <a href="#notificaciones" data-target="article" data-icon="items" data-label="Notificaciones"></a>
-            </nav>
-        </footer>
-        
-    </section>
-    
-    <section id="mapa">
-      <header data-title="Tus Trozos">
-        <nav>
-          <a href="#mainapp" class="button onleft" data-target="section" data-icon="left" >Volver</a>
-        </nav>
-      </header>
-      <article>El mapa del usuario</article>
-    </section>
-    
-
 
     <!-- LungoJS (Production mode) -->
     <script src="lungo.js/lungo-1.2.js"></script>
@@ -89,29 +56,6 @@
     <script src="app/events.js"></script>
     <script src="app/services.js"></script>
     <script src="app/view.js"></script>
-    <script>
-      LUNGO.dom(document).ready(function() {
-        
-        LUNGO.View.Template.create(
-          'usuario-perfil', 
-          '<div class="usuario-cabecera">\
-            <img src="{{img}}" />\
-            <p class="user-info usuario-nombre">{{name}}</p>\
-            <p class="user-info usuario-nivel">{{level}}</p>\
-          </div>\
-          <div class="usuario-fuerzadia"></div>\
-          <div class="usuario-bloque">{{ataque}}</div>\
-          <div class="usuario-bloque">{{defensa}}</div>
-          <a href="#" id="btn-atacar" class="button" >Atacar</a>\
-          <a href="#" id="btn-cancelar-ataque" class="button" >No atacar (cobarde!)</a>'
-        );
-        
-        LUNGO.View.Template.create(
-          'usuario-notificaciones', 
-          '<li><div class="onright bubble pink">{{tipo}}</div>{{texto}}</li>'
-        );               
-        
-      });
-    </script>
+    
 </body>
 </html>
