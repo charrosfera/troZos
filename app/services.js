@@ -8,11 +8,15 @@ App.Services = (function(lng, app, undefined) {
         });
     }
 
-    var spyTile = function(position, callback) {
+    var spyPlace = function(id, callback) {
+        var url = urlRoot + '/spy/' + id;
 
+        lng.Service.json(url, null, function(place) {
+            callback.call(place);
+        });
     }
 
-    var attackTile = function(tile, callback) {
+    var attackPlace = function(id, callback) {
         
     }
 
@@ -38,9 +42,9 @@ App.Services = (function(lng, app, undefined) {
         user: {
             getProfile: getUserProfile
         },
-        tile: {
-            spy: spyTile,
-            attack: attackTile
+        place: {
+            spy: spyPlace,
+            attack: attackPlace
         },
         notification: {
             getAll: getAllNotifications,
