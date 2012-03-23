@@ -1,0 +1,26 @@
+input:not([type="checkbox"]), textarea, select{
+  font-size:20px;
+}
+
+
+.logo{
+  margin:20px auto;
+  width:100%;
+  text-align:center;
+}
+
+.login-form{
+  margin:30px auto;
+  width:70%;
+  text-align:center;
+}
+.login-input{
+  height:50px;
+}
+.login-button{
+  margin:20px auto;
+  font-size:18px;
+  padding:15px 12px;
+  font-weight:bold;
+  display:inline-block;
+}
