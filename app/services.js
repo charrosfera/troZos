@@ -1,20 +1,29 @@
 App.Services = (function(lng, app, undefined) {
-  
-    var actualizarUsuario = function(){
-      
-      //Llamada ajax para obtener los datos de usuario
-      //var datosUsuario = $.ajax....
-      
-      //Guardar los datos del usuario
-      lng.Data.usuario.perfil( datosUsuario );
-      
+    var urlRoot = 'http://138.4.61.93/api';
+
+    var getUserProfile = function(callback) {
+        var url = urlRoot + '/user';
+
+        lng.Service.get(url, null function(userProfile) {
+            lng.Data.user.profile(userProfile);
+            callback.call(userProfile);
+        });
     }
 
-    return {
-      usuario:{
-        actualizar: actualizarUsuario
-      }
+    var getUserNotifications = function(callback) {
+        var url = urlRoot + '/notifications';
 
+        lng.Service.get(url, null function(userNotifications) {
+            //lng.Data.user.notifications(userNotifications);
+            callback.call(userNotifications);
+        });
+    };
+
+    return {
+        user: {
+            getProfile: getUserProfile,
+            getNotifications: getUserNotifications
+        }
     }
 
 })(LUNGO, App);
