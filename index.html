@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>LungoJS 1.2</title>
-    <meta name="description" content="">
-    <meta name="author" content="Javier Jiménez Villar (@soyjavi)">
+    <title>Juego de TroZos</title>
+    <meta name="description" content="Juego de conquista basado en influencia social y ego local">
+    <meta name="author" content="Charrosfera DevTeam">
     <!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -20,6 +20,7 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="./lungo.js/lungo-1.2.css">
     <link rel="stylesheet" href="./lungo.js/lungo.theme.default.css">
+    <link rel="stylesheet" href="./lungo.js/juegotrozos.theme.css">
 </head>
 
 <body class="app">
@@ -27,33 +28,48 @@
         First, you have to do is create a LungoJS Application instance in the file app.js.
         ...and use a Webkit browser as Chrome or Safari.
     -->
-    <section id="hello_world">
-        <header data-title="Hello world!">
+    <section id="login">
+        <header data-title="Juego de TroZos">
 
-            <a href="#aside-example" data-target="aside" data-icon="files" class="button onleft">Aside</a>
-            <a href="#copyright" data-target="section" data-icon="files" class="button onright">Copyright</a>
+            <!--<a href="#aside-example" data-target="aside" data-icon="files" class="button onleft">Aside</a> -->
+            <!--<a href="#copyright" data-target="section" data-icon="files" class="button onright">Copyright</a>-->
         </header>
+        <article>
+          login
+          <input type="text" placeholder="Input text"/>
+          <a href="#mainapp" class="button blue" data-icon="home" data-target="section"></a>
+        </article>
 
+    </section>
+
+    <section id="mainapp">
+        <header data-title="Juego de trozos"></header>
+        <article id="perfil">
+          Datos del usuario
+        </article>
+        <article id="notificaciones">
+          Notificaciones
+        </article>
+        
         <footer class="toolbar with-labels">
             <nav>
-                <a href="#article-1" class="current" data-target="article" data-icon="user" data-label="User"></a>
-                <a href="#article-2" data-target="article" data-icon="group" data-label="Group"></a>
-                <a href="#article-3" data-target="article" data-icon="folder" data-label="Folder"></a>
+                <a href="#perfil" class="current" data-target="article" data-icon="user" data-label="Perfil"></a>
+                <a href="#mapa" data-target="section" data-icon="chart" data-label="Mapa"></a>
+                <a href="#notificaciones" data-target="article" data-icon="items" data-label="Notificaciones"></a>
             </nav>
         </footer>
-
-        <article id="article-1">article 1</article>
-        <article id="article-2">article 2</article>
-        <article id="article-3">article 3</article>
+        
     </section>
-
-    <section id="copyright">
-        <header data-back="home" data-title="Copyright"></header>
-        <article></article>
+    
+    <section id="mapa">
+      <header data-title="Tus Trozos">
+        <nav>
+          <a href="#mainapp" class="button onleft" data-target="section" data-icon="left" >Volver</a>
+        </nav>
+      </header>
+      <article>El mapa del usuario</article>
     </section>
-
-    <aside id="aside-example"></aside>
-
+    
 
 
     <!-- LungoJS (Production mode) -->

@@ -1,12 +1,10 @@
 var App = (function(lng, undefined) {
 
-    //Define your LungoJS Application Instance
-    /*
+    //Comienza el juego!    
     lng.App.init({
-        name: 'Select a name for your app',
-        version: '1.1'
+        name: 'Juego de Trozos',
+        version: '0.1'
     });
-    */
 
     return {
 
