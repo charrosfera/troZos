@@ -4,8 +4,8 @@ App.Services = (function(lng, app, undefined) {
     var getUserProfile = function(callback) {
         var url = urlRoot + '/user';
 
-        lng.Service.get(url, null function(userProfile) {
-            lng.Data.user.profile(userProfile);
+        lng.Service.get(url, {}, function(userProfile) {
+            App.Data.user.profile(userProfile);
             callback.call(userProfile);
         });
     }
@@ -13,7 +13,7 @@ App.Services = (function(lng, app, undefined) {
     var getUserNotifications = function(callback) {
         var url = urlRoot + '/notifications';
 
-        lng.Service.get(url, null function(userNotifications) {
+        lng.Service.get(url, {}, function(userNotifications) {
             //lng.Data.user.notifications(userNotifications);
             callback.call(userNotifications);
         });
